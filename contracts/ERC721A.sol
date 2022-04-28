@@ -74,6 +74,18 @@ contract ERC721A is Context, ERC165, IERC721A {
     }
 
     /**
+     * @dev Returns a token ID owned by `owner` at a given `index` of its token list.
+     * Use along with {balanceOf} to enumerate all of ``owner``'s tokens.
+     */
+    function tokenOfOwnerByIndex(address owner, uint256 index) public view override returns (uint256 tokenId) {}
+
+    /**
+     * @dev Returns a token ID at a given `index` of all the tokens stored by the contract.
+     * Use along with {totalSupply} to enumerate all tokens.
+     */
+    function tokenByIndex(uint256 index) public view override returns (uint256) {}
+
+    /**
      * Returns the total amount of tokens minted in the contract.
      */
     function _totalMinted() internal view returns (uint256) {

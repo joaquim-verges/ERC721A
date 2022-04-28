@@ -5,11 +5,12 @@ pragma solidity ^0.8.4;
 
 import '@openzeppelin/contracts/token/ERC721/IERC721.sol';
 import '@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol';
+import '@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol';
 
 /**
  * @dev Interface of an ERC721A compliant contract.
  */
-interface IERC721A is IERC721, IERC721Metadata {
+interface IERC721A is IERC721, IERC721Metadata, IERC721Enumerable {
     error ApprovalCallerNotOwnerNorApproved();
     error ApprovalQueryForNonexistentToken();
     error ApproveToCaller();
@@ -47,10 +48,4 @@ interface IERC721A is IERC721, IERC721Metadata {
         // If there are multiple variables, please pack them into a uint64.
         uint64 aux;
     }
-
-    /**
-     * @dev Returns the total amount of tokens stored by the contract.
-     * @dev Burned tokens are calculated here, use _totalMinted() if you want to count just minted tokens.
-     */
-    function totalSupply() external view returns (uint256);
 }
